@@ -4,7 +4,7 @@ import Calculator from "./Calculator";
 import React, { useEffect, useState } from "react";
 
 const App = () => {
-  const [userWorkLocation, setUserWorkLocation] = useState("null");
+  const [userWorkLocation, setUserWorkLocation] = useState(null);
   const [pay, setPay] = useState(0);
   const [total, setTotal] = useState(0);
   const [startTime, setStartTime] = useState(0);
