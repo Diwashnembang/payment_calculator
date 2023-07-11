@@ -1,6 +1,11 @@
 import { Box, Input, VStack, Text, HStack, Button } from "@chakra-ui/react";
+import { useRef } from "react";
 
-const Calculator = () => {
+const Calculator = ({ userPayInfo }) => {
+  const payInputRef = useRef("");
+  const handleClick = () => {
+    userPayInfo.setPay(payInputRef.current.value);
+  };
   return (
     <VStack>
       <HStack
@@ -10,8 +15,14 @@ const Calculator = () => {
         width={"600px"}
       >
         <Text fontSize={"ml"}>Your pay</Text>
-        <Input placeholder="Enter your pay" size="xs" width={"200px"} />
-        <Button>Confirm</Button>
+        <Text fontSize={"ml"}>{userPayInfo.pay}</Text>
+        <Input
+          placeholder="Enter your pay"
+          size="xs"
+          width={"200px"}
+          ref={payInputRef}
+        />
+        <Button onClick={handleClick}>Confirm</Button>
       </HStack>
       <Box>
         <Button>calculate</Button>

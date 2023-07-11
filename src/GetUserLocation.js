@@ -2,18 +2,15 @@ import { useEffect, useState } from "react";
 
 const GetUserLocation = (prop) => {
   const [userLocation, setUserLocation] = useState(prop);
-  const sucess = (props) => {
+  const sucess = (position) => {
     //  sucessfully  got user location
-    setUserLocation(props);
+    setUserLocation(position);
   };
   const error = () => {
     console.log("error ");
   };
   useEffect(() => {
-    const getLocation = async () => {
-      await navigator.geolocation.watchPosition(sucess, error);
-    };
-    getLocation();
+    navigator.geolocation.watchPosition(sucess, error);
   }, [prop]);
 
   return [userLocation];

@@ -1,6 +1,7 @@
 import { Box, VStack } from "@chakra-ui/react";
 import Location from "./Location";
 import Calculator from "./Calculator";
+import Status from "./Status";
 import React, { useEffect, useState } from "react";
 
 const App = () => {
@@ -16,7 +17,8 @@ const App = () => {
       <Location
         userWorkLocationInfo={{ userWorkLocation, setUserWorkLocation }}
       />
-      <Calculator />
+      <Calculator userPayInfo={{pay, setPay}}/>
+      <Status pay={pay} totalPay={total} setTotalPay={setTotal}/>
     </VStack>
   );
 };
