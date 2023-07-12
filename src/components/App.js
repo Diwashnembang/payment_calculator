@@ -11,14 +11,34 @@ const App = () => {
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndtime] = useState(0);
   const [hoursWorked, setHoursWorked] = useState(0);
+  const [isPayCalculating, setIsPayCalculating] = useState();
 
   return (
     <VStack bg="#F1E4F3" h="100vh" spacing={8} paddingTop={"3rem"}>
       <Location
         userWorkLocationInfo={{ userWorkLocation, setUserWorkLocation }}
       />
-      <Calculator userPayInfo={{pay, setPay}}/>
-      <Status pay={pay} totalPay={total} setTotalPay={setTotal}/>
+
+      <Calculator
+        userPayInfo={{ pay, setPay }}
+        timeInfo={{ setStartTime, startTime }}
+        isPayCalcualtingInfo={{ isPayCalculating, setIsPayCalculating }}
+      />
+
+      <Status
+        pay={pay}
+        totalPay={total}
+        setTotalPay={setTotal}
+        timeInfo={{
+          startTime,
+          setStartTime,
+          endTime,
+          setEndtime,
+          hoursWorked,
+          setHoursWorked,
+        }}
+        isPayCalculatingInfo={{ isPayCalculating, setIsPayCalculating }}
+      />
     </VStack>
   );
 };

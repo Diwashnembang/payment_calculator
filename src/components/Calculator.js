@@ -1,10 +1,16 @@
 import { Box, Input, VStack, Text, HStack, Button } from "@chakra-ui/react";
 import { useRef } from "react";
+import { getTime } from "../timeOperation";
 
-const Calculator = ({ userPayInfo }) => {
+const Calculator = ({ userPayInfo, timeInfo, isPayCalcualtingInfo }) => {
   const payInputRef = useRef("");
   const handleClick = () => {
     userPayInfo.setPay(payInputRef.current.value);
+  };
+  const nowCalculating = () => {
+    const timeNow = getTime();
+    timeInfo.setStartTime(timeNow);
+    isPayCalcualtingInfo.setIsPayCalculating(true);
   };
   return (
     <VStack>
@@ -25,7 +31,7 @@ const Calculator = ({ userPayInfo }) => {
         <Button onClick={handleClick}>Confirm</Button>
       </HStack>
       <Box>
-        <Button>calculate</Button>
+        <Button onClick={nowCalculating}>calculate</Button>
       </Box>
     </VStack>
   );
