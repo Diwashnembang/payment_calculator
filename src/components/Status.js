@@ -16,14 +16,12 @@ const Status = ({
       let hrs = date.getHours();
       let min = date.getMinutes();
       let sec = date.getSeconds();
-      console.log("running in status");
       setTime(`time : ${hrs} : ${min} : ${sec}`);
     }, 1000);
   }, [time]);
 
   return (
     <HStack justify={"space-between"} width={"50%"}>
-      {console.log("this is pay status", isPayCalculatingInfo.isPayCalculating)}
       <Box id="total-earned">Total pay 0</Box>
       <Box id="hours-worked">Hours worked0</Box>
       <Box>

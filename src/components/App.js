@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 
 const App = () => {
   const [userWorkLocation, setUserWorkLocation] = useState(null);
+  const [userLocation, setUserLocation] = useState(null);
   const [pay, setPay] = useState(0);
   const [total, setTotal] = useState(0);
   const [startTime, setStartTime] = useState(0);
@@ -17,12 +18,15 @@ const App = () => {
     <VStack bg="#F1E4F3" h="100vh" spacing={8} paddingTop={"3rem"}>
       <Location
         userWorkLocationInfo={{ userWorkLocation, setUserWorkLocation }}
+        isPayCalcualtingInfo={{ isPayCalculating, setIsPayCalculating }}
+        userLocationInfo={{userLocation,setUserLocation}}
       />
 
       <Calculator
         userPayInfo={{ pay, setPay }}
         timeInfo={{ setStartTime, startTime }}
         isPayCalcualtingInfo={{ isPayCalculating, setIsPayCalculating }}
+        usrLocationInfo={{userWorkLocation, userLocation}}
       />
 
       <Status

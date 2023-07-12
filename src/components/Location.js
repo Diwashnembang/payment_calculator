@@ -2,12 +2,16 @@ import { Box, HStack, Input, Text, VStack, Button } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { getWorkCordinattes } from "../getWorkCordinates";
 import GetUserLocation from "../GetUserLocation";
-const Location = ({ userWorkLocationInfo }) => {
+const Location = ({
+  userWorkLocationInfo,
+  isPayCalculatingInfo,
+  userLocationInfo,
+}) => {
   const ref = useRef("null");
   const [workCordinates, setWorkCordiantes] = useState(
     userWorkLocationInfo.userWorkLocation
   );
-  const [userLocation] = GetUserLocation("null");
+  const [userLocation] = GetUserLocation({});
   const addUserLocation = (e) => {
     userWorkLocationInfo.setUserWorkLocation(ref.current.value);
   };
@@ -19,6 +23,12 @@ const Location = ({ userWorkLocationInfo }) => {
       );
     })();
   }, [userWorkLocationInfo.userWorkLocation]);
+
+  useEffect(() => {
+    userLocationInfo.setUserLocation({
+      userLocation,
+    });
+  }, [userLocation]);
   return (
     <VStack spacing={8}>
       <HStack
@@ -36,8 +46,6 @@ const Location = ({ userWorkLocationInfo }) => {
             : "no"}
         </Text>
         <Text fontSize={"ml"}>Your loation</Text>
-        {console.log(userLocation)}
-
         <Input
           placeholder="Enter Your Location"
           size="xs"
