@@ -1,11 +1,11 @@
 // {
-//     userLocation.latitude,
-//     userLocation.longitufe
+//     userLocation.lat,
+//     userLocation.long
 // }
 
 import { getTime } from "./timeOperation"
 
 export const getEndTime=(userLocation, workLocation)=>{  
-    if(userLocation.latitude === workLocation.latitude && userLocation.longitude=== workLocation.longitude) return
+    if(userLocation.lat === workLocation.lat && userLocation.long=== workLocation.long) return "still calculating pay"
     return getTime();
 }

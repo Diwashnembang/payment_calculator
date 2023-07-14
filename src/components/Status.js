@@ -20,6 +20,7 @@ const Status = ({
     }, 1000);
   }, [time]);
 
+
   return (
     <HStack justify={"space-between"} width={"50%"}>
       <Box id="total-earned">Total pay 0</Box>

@@ -1,8 +1,9 @@
 import { Box, Input, VStack, Text, HStack, Button } from "@chakra-ui/react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { getTime } from "../timeOperation";
+import { getEndTime } from "../getEndTime";
 
-const Calculator = ({ userPayInfo, timeInfo, isPayCalcualtingInfo }) => {
+const Calculator = ({ userPayInfo, timeInfo, isPayCalcualtingInfo,userLocationInfo,payInfo,hoursInfo }) => {
   const payInputRef = useRef("");
   const handleClick = () => {
     userPayInfo.setPay(payInputRef.current.value);
@@ -12,6 +13,17 @@ const Calculator = ({ userPayInfo, timeInfo, isPayCalcualtingInfo }) => {
     timeInfo.setStartTime(timeNow);
     isPayCalcualtingInfo.setIsPayCalculating(true);
   };
+
+  const endingTime=()=>{
+    const endTime=getEndTime(userLocationInfo.userLocation,userLocationInfo.userWorkLocation);
+    timeInfo.setEndTime(endTime);
+  }
+
+  const calculatePay=()=>{
+    
+  }
+
+  useEffect(()=>{},[hou])
   return (
     <VStack>
       <HStack

@@ -19,14 +19,16 @@ const App = () => {
       <Location
         userWorkLocationInfo={{ userWorkLocation, setUserWorkLocation }}
         isPayCalcualtingInfo={{ isPayCalculating, setIsPayCalculating }}
-        userLocationInfo={{userLocation,setUserLocation}}
+        userLocationInfo={{ userLocation, setUserLocation }}
       />
 
       <Calculator
         userPayInfo={{ pay, setPay }}
-        timeInfo={{ setStartTime, startTime }}
+        timeInfo={{ setStartTime, startTime, endTime, setEndtime }}
         isPayCalcualtingInfo={{ isPayCalculating, setIsPayCalculating }}
-        usrLocationInfo={{userWorkLocation, userLocation}}
+        payInfo={(pay, setPay)}
+        userLocationInfo={{ userWorkLocation, userLocation }}
+        hoursInfo={hoursWorked,setHoursWorked}
       />
 
       <Status
